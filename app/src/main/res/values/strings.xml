@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Adoção de Animais</string>
+    <string name="your_string_here"><u>Esqueci minha senha!</u></string>
+    <string name="register">Digite seu email e senha para cadastrar</string>
+    <string name="register2">Digite seu email para criar uma nova senha</string>
+    <string name="Obs">Obs: Você receberá um email para autenticar o seu email</string>
+    <string name="Obs2">Obs: Você receberá um email para fazer a troca de senha</string>
+    <string name="home_text">Bem Vindo</string>
+    <string name="minimum_password">senha curta</string>
+    <string name="auth_failed">Conta nao existe</string>
+    <string name="senha_curta">Senha curta, minimo 6 characters!</string>
+    <string name="conta_existe">Conta ja existe</string>
+    <string name="Vazio">Campo vazio</string>
+    <string name="AccountRecovery">Enviado para o email</string>
+    <string name="SignUpAutetication">Autenticação enviado por email :</string>
+    <string name="SignUpError">Não foi possivel verificar :</string>
+</resources>
