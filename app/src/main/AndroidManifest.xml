@@ -11,10 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.robsonrcs.adote_um_animal.HomeActivity"></activity>
-        <activity android:name="com.example.robsonrcs.adote_um_animal.AccountRecoveryActivity" />
-        <activity android:name="com.example.robsonrcs.adote_um_animal.SignUpActivity" />
-        <activity android:name="com.example.robsonrcs.adote_um_animal.LoginActivity">
+        <activity android:name="com.example.robsonrcs.adote_um_animal.Activity.HomeActivity"></activity>
+        <activity android:name="com.example.robsonrcs.adote_um_animal.Activity.AccountRecoveryActivity" />
+        <activity android:name="com.example.robsonrcs.adote_um_animal.Activity.SignUpActivity" />
+        <activity android:name="com.example.robsonrcs.adote_um_animal.Activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

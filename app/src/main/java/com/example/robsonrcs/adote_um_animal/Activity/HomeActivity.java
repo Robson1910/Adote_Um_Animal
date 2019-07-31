@@ -1,4 +1,4 @@
-package com.example.robsonrcs.adote_um_animal;
+package com.example.robsonrcs.adote_um_animal.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.robsonrcs.adote_um_animal.Activity.LoginActivity;
+import com.example.robsonrcs.adote_um_animal.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
