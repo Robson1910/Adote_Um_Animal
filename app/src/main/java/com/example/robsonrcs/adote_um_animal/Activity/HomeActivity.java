@@ -43,6 +43,20 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        pesquisar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, PesquisaActivity.class));
+            }
+        });
+
+        excluir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, ExcluirActivity.class));
+            }
+        });
+
        /* cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,19 +64,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        excluir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, Excluir_cadastroActivity.class));
-            }
-        });
-
-        pesquisar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, Lista_animaisActivity.class));
-            }
-        });
 
         feedback.setOnClickListener(new View.OnClickListener() {
             @Override

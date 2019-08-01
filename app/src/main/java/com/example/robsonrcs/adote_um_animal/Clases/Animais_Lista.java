@@ -2,7 +2,9 @@ package com.example.robsonrcs.adote_um_animal.Clases;
 
 import com.google.firebase.database.Exclude;
 
-public class Animais {
+public class Animais_Lista {
+
+    //Lista de Animais
 
     private String mRaca;
     private String mTipo;
