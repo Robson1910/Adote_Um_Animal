@@ -33,6 +33,24 @@
 
         </android.support.v7.widget.Toolbar>
 
+        <com.miguelcatalan.materialsearchview.MaterialSearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:hint="Pesquisar pelo Nome, Raça ou Cidade."
+            android:textColor="@color/White"
+            android:textColorHint="@color/White"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:searchBackIcon="@mipmap/ic_arrow_back"
+            app:searchBackground="@color/Navy"
+            app:searchCloseIcon="@mipmap/ic_close">
+
+        </com.miguelcatalan.materialsearchview.MaterialSearchView>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

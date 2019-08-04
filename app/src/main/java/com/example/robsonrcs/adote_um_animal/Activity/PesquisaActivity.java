@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -21,7 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,13 +34,11 @@ public class PesquisaActivity extends AppCompatActivity implements AnimaisAdapte
     private TextView mTitle, mTitle2;
     private RecyclerView mRecyclerView;
     private AnimaisAdapter mAdapter;
-
     private ProgressBar mProgressCircle;
-
-    private FirebaseStorage mStorage;
     private DatabaseReference mDatabaseRef;
     private ValueEventListener mDBListener;
     private List<Animais_Lista> mUploads;
+    private MaterialSearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,25 +46,23 @@ public class PesquisaActivity extends AppCompatActivity implements AnimaisAdapte
         setContentView(R.layout.activity_pesquisa);
 
         toolbarTop = (Toolbar) findViewById(R.id.toolbar4);
+        setSupportActionBar(toolbarTop);
+        getSupportActionBar().setTitle("");
         mTitle = (TextView) toolbarTop.findViewById(R.id.toolbar_title4);
         toolbarTop2 = (Toolbar) findViewById(R.id.toolbar5);
         mTitle2 = (TextView) toolbarTop.findViewById(R.id.toolbar_title5);
 
+        searchView = (MaterialSearchView) findViewById(R.id.search_view);
+        mProgressCircle = findViewById(R.id.progress_c);
+
         mRecyclerView = findViewById(R.id.recycler_v);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        mProgressCircle = findViewById(R.id.progress_c);
-
         mUploads = new ArrayList<>();
-
         mAdapter = new AnimaisAdapter(PesquisaActivity.this, mUploads);
-
         mRecyclerView.setAdapter(mAdapter);
-
         mAdapter.setOnItemClickListener(PesquisaActivity.this);
-
-        mStorage = FirebaseStorage.getInstance();
+        
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
 
         mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
@@ -78,6 +76,64 @@ public class PesquisaActivity extends AppCompatActivity implements AnimaisAdapte
                     upload.setKey(postSnapshot.getKey());
 
                     mUploads.add(upload);
+                }
+
+                mAdapter.notifyDataSetChanged();
+                mProgressCircle.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(PesquisaActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                mProgressCircle.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                searchView(newText);
+
+                return true;
+            }
+        });
+    }
+
+    private void searchView(final String string) {
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+
+        mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                mUploads.clear();
+
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Animais_Lista upload = postSnapshot.getValue(Animais_Lista.class);
+                    upload.setKey(postSnapshot.getKey());
+
+                    String animaisName = upload.getName();
+                    String animaisName2 = upload.getName().toLowerCase();
+                    String animaisRaca = upload.getmRaca();
+                    String animaisRaca2 = upload.getmRaca().toLowerCase();
+                    String animaisCity = upload.getmCity();
+                    String animaisCity2 = upload.getmCity().toLowerCase();
+
+                    if (animaisName.contains(string) || animaisName2.contains(string)) {
+                        mUploads.add(upload);
+                    } else if (animaisRaca.contains(string) || animaisRaca2.contains(string)) {
+                        mUploads.add(upload);
+                    } else if (animaisCity.contains(string) || animaisCity2.contains(string)) {
+                        mUploads.add(upload);
+                    }
                 }
 
                 mAdapter.notifyDataSetChanged();
@@ -145,5 +201,13 @@ public class PesquisaActivity extends AppCompatActivity implements AnimaisAdapte
     protected void onDestroy() {
         super.onDestroy();
         mDatabaseRef.removeEventListener(mDBListener);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.search_menu, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        searchView.setMenuItem(item);
+        return true;
     }
 }
