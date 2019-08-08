@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="@mipmap/bca"
-tools:context="com.example.robsonrcs.adote_um_animal.Activity.ExcluirActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bca"
+    tools:context="com.example.robsonrcs.adote_um_animal.Activity.ExcluirActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar6"
@@ -14,6 +14,13 @@ tools:context="com.example.robsonrcs.adote_um_animal.Activity.ExcluirActivity">
         android:background="@drawable/layout_shadow_white"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme">
+
+        <ImageView
+            android:id="@+id/arrow_back_excluir"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:background="@mipmap/ic_arrow_back" />
 
         <TextView
             android:id="@+id/toolbar_title6"
@@ -27,16 +34,16 @@ tools:context="com.example.robsonrcs.adote_um_animal.Activity.ExcluirActivity">
 
     </android.support.v7.widget.Toolbar>
 
-<ProgressBar
-    android:id="@+id/progress_circle"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_centerInParent="true" />
+    <ProgressBar
+        android:id="@+id/progress_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
 
-<android.support.v7.widget.RecyclerView
-    android:id="@+id/recycler_view"
-    android:layout_marginTop="65dp"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="65dp" />
 
 </RelativeLayout>

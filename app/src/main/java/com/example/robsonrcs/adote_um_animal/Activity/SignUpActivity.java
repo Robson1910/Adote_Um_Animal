@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText createPassword;
     private Button BtnRegister;
     private FirebaseAuth auth;
+    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,17 @@ public class SignUpActivity extends AppCompatActivity {
         createEmail = (EditText) findViewById(R.id.Edit_create_email);
         createPassword = (EditText) findViewById(R.id.Edit_create_password);
         BtnRegister = (Button) findViewById(R.id.btnCadastro);
+        back = (ImageView) findViewById(R.id.arrow_back_signUp);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         auth = FirebaseAuth.getInstance();
 
         BtnRegister.setOnClickListener(new View.OnClickListener() {

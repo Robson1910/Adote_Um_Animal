@@ -1,5 +1,6 @@
 package com.example.robsonrcs.adote_um_animal.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -39,6 +40,8 @@ public class PesquisaActivity extends AppCompatActivity implements AnimaisAdapte
     private ValueEventListener mDBListener;
     private List<Animais_Lista> mUploads;
     private MaterialSearchView searchView;
+    private ImageView back;
+    private String information = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +54,9 @@ public class PesquisaActivity extends AppCompatActivity implements AnimaisAdapte
         mTitle = (TextView) toolbarTop.findViewById(R.id.toolbar_title4);
         toolbarTop2 = (Toolbar) findViewById(R.id.toolbar5);
         mTitle2 = (TextView) toolbarTop.findViewById(R.id.toolbar_title5);
-
         searchView = (MaterialSearchView) findViewById(R.id.search_view);
         mProgressCircle = findViewById(R.id.progress_c);
-
+        back = (ImageView) findViewById(R.id.arrow_back_information);
         mRecyclerView = findViewById(R.id.recycler_v);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -62,45 +64,27 @@ public class PesquisaActivity extends AppCompatActivity implements AnimaisAdapte
         mAdapter = new AnimaisAdapter(PesquisaActivity.this, mUploads);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setOnItemClickListener(PesquisaActivity.this);
-        
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
 
-        mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                mUploads.clear();
-
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    Animais_Lista upload = postSnapshot.getValue(Animais_Lista.class);
-                    upload.setKey(postSnapshot.getKey());
-
-                    mUploads.add(upload);
-                }
-
-                mAdapter.notifyDataSetChanged();
-                mProgressCircle.setVisibility(View.INVISIBLE);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(PesquisaActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                mProgressCircle.setVisibility(View.INVISIBLE);
+            public void onClick(View v) {
+                Intent intent = new Intent(PesquisaActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
+
+        searchView(information);
 
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-
                 searchView(newText);
-
                 return true;
             }
         });
@@ -127,7 +111,9 @@ public class PesquisaActivity extends AppCompatActivity implements AnimaisAdapte
                     String animaisCity = upload.getmCity();
                     String animaisCity2 = upload.getmCity().toLowerCase();
 
-                    if (animaisName.contains(string) || animaisName2.contains(string)) {
+                    if (string.isEmpty()) {
+                        mUploads.add(upload);
+                    } else if (animaisName.contains(string) || animaisName2.contains(string)) {
                         mUploads.add(upload);
                     } else if (animaisRaca.contains(string) || animaisRaca2.contains(string)) {
                         mUploads.add(upload);
@@ -164,8 +150,9 @@ public class PesquisaActivity extends AppCompatActivity implements AnimaisAdapte
         TextView description = (TextView) findViewById(R.id.text_view_descricao_1);
         TextView name = (TextView) findViewById(R.id.text_nome_info_1);
         ImageView img = (ImageView) findViewById(R.id.image_info1);
+        ImageView close = (ImageView) findViewById(R.id.close_information);
 
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.frame2);
+        final FrameLayout frameLayout = (FrameLayout) findViewById(R.id.frame2);
         frameLayout.setVisibility(View.VISIBLE);
 
         Animais_Lista selectedItem = mUploads.get(position);
@@ -190,6 +177,13 @@ public class PesquisaActivity extends AppCompatActivity implements AnimaisAdapte
         email.setText(selectedEmail);
         description.setText(selectedDescription);
         name.setText(selectedName);
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frameLayout.setVisibility(View.GONE);
+            }
+        });
     }
 
     @Override

@@ -5,25 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bca"
-    tools:context=".Activity.SignUpActivity">
+    tools:context="com.example.robsonrcs.adote_um_animal.Activity.FeedbackActivity">
 
     <ScrollView
-        android:id="@+id/scrollView1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1">
 
         <LinearLayout
-            android:id="@+id/linear_layout1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar1"
+                android:id="@+id/toolbar7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/layout_shadow_white"
@@ -31,18 +35,18 @@
                 android:theme="?attr/actionBarTheme">
 
                 <ImageView
-                    android:id="@+id/arrow_back_signUp"
+                    android:id="@+id/arrow_back_feedback"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginStart="20dp"
                     android:background="@mipmap/ic_arrow_back" />
 
                 <TextView
-                    android:id="@+id/toolbar_title1"
+                    android:id="@+id/toolbar_title7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/app_name"
+                    android:text="Feedback"
                     android:textColor="@color/White"
                     android:textSize="25sp"
                     android:textStyle="normal|bold" />
@@ -50,61 +54,66 @@
             </android.support.v7.widget.Toolbar>
 
             <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:id="@+id/imageView"
+                android:layout_width="300dp"
+                android:layout_height="229dp"
+                android:background="@mipmap/feed"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:src="@mipmap/dogs" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
-                android:text="@string/register"
-                android:textAlignment="center"
-                android:textColor="@color/Chartreuse"
-                android:textSize="20sp"
-                android:textStyle="bold|italic" />
+                android:layout_marginTop="20dp" />
 
             <EditText
-                android:id="@+id/Edit_create_email"
+                android:id="@+id/Edit_nome_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/text_custom"
+                android:drawableStart="@drawable/ic_person_black_24dp"
+                android:drawablePadding="10dp"
+                android:hint="Nome"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="@color/Black"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/Edit_email_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/edit_text_custom"
+                android:background="@drawable/text_custom"
                 android:drawableStart="@drawable/ic_email_black_24dp"
                 android:drawablePadding="10dp"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:padding="13dp"
-                android:textColor="#000"
+                android:padding="10dp"
+                android:textColor="@color/Black"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/Edit_create_password"
+                android:id="@+id/Edit_comentario_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/edit_text_custom"
-                android:drawableStart="@drawable/ic_lock_black_24dp"
+                android:background="@drawable/text_custom"
+                android:drawableStart="@drawable/ic_rate_review_black_24dp"
                 android:drawablePadding="10dp"
-                android:hint="Senha"
-                android:inputType="textPassword"
-                android:padding="13dp"
+                android:hint="Comentário"
+                android:inputType="textPersonName"
+                android:padding="10dp"
                 android:textColor="@color/Black"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btnCadastro"
+                android:id="@+id/btnFeddback"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -112,24 +121,10 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/button_custom"
-                android:text="Cadastrar"
+                android:text="Enviar"
                 android:textColor="@color/Azure"
                 android:textSize="14sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="40dp"
-                android:paddingBottom="20dp"
-                android:text="@string/Obs"
-                android:textAlignment="center"
-                android:textColor="@color/Chartreuse"
-                android:textSize="16sp"
-                android:textStyle="bold|italic" />
 
         </LinearLayout>
 

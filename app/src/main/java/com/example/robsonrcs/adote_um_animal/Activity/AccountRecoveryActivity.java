@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class AccountRecoveryActivity extends AppCompatActivity {
     private EditText recoverEmail;
     private Button BtnRecover;
     private FirebaseAuth auth;
+    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,16 @@ public class AccountRecoveryActivity extends AppCompatActivity {
         mTitle = (TextView) toolbarTop.findViewById(R.id.toolbar_title2);
         recoverEmail = (EditText) findViewById(R.id.Edit_recover_email);
         BtnRecover = (Button) findViewById(R.id.btnRecover);
+        back = (ImageView) findViewById(R.id.arrow_back_recovery);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AccountRecoveryActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         BtnRecover.setOnClickListener(new View.OnClickListener() {
             @Override

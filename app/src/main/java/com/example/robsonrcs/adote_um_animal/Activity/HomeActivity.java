@@ -57,6 +57,13 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, FeedbackActivity.class));
+            }
+        });
+
        /* cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,13 +71,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
-        feedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, FeedbackActivity.class));
-            }
-        });
         */
     }
 
@@ -78,7 +78,6 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        finish();
     }
-
-
 }

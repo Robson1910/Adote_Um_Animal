@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.ExcluirActivity"></activity>
+        <activity android:name=".Activity.FeedbackActivity"></activity>
+        <activity android:name=".Activity.ExcluirActivity" />
         <activity android:name=".Activity.PesquisaActivity" />
         <activity android:name=".Activity.HomeActivity" />
         <activity android:name=".Activity.AccountRecoveryActivity" />
