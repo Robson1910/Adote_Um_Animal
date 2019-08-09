@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -152,7 +153,9 @@ public class PesquisaActivity extends AppCompatActivity implements AnimaisAdapte
         ImageView img = (ImageView) findViewById(R.id.image_info1);
         ImageView close = (ImageView) findViewById(R.id.close_information);
 
+        final LinearLayout frameLayout2 = (LinearLayout) findViewById(R.id.frame1);
         final FrameLayout frameLayout = (FrameLayout) findViewById(R.id.frame2);
+        frameLayout2.setVisibility(View.GONE);
         frameLayout.setVisibility(View.VISIBLE);
 
         Animais_Lista selectedItem = mUploads.get(position);
@@ -182,6 +185,7 @@ public class PesquisaActivity extends AppCompatActivity implements AnimaisAdapte
             @Override
             public void onClick(View v) {
                 frameLayout.setVisibility(View.GONE);
+                frameLayout2.setVisibility(View.VISIBLE);
             }
         });
     }

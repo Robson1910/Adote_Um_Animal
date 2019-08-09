@@ -64,14 +64,12 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-       /* cadastrar.setOnClickListener(new View.OnClickListener() {
+        cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, Cadastro_informacaoActivity.class));
+                startActivity(new Intent(HomeActivity.this, CadastroActivity.class));
             }
         });
-
-        */
     }
 
     private void goLoginScreen() {

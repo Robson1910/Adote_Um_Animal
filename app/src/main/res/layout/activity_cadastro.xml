@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bca"
+    tools:context="com.example.robsonrcs.adote_um_animal.Activity.PesquisaActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@drawable/layout_shadow_white"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme">
+
+                <ImageView
+                    android:id="@+id/arrow_back_cadastrar"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@mipmap/ic_arrow_back" />
+
+                <TextView
+                    android:id="@+id/toolbar_title7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Cadastrar Animais"
+                    android:textColor="@color/White"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold" />
+
+            </android.support.v7.widget.Toolbar>
+
+            <EditText
+                android:id="@+id/Edit_text_Nome"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/text_custom"
+                android:hint="Nome"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColor="@color/Black" />
+
+            <EditText
+                android:id="@+id/Edit_text_raca"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/text_custom"
+                android:hint="Raça"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColor="@color/Black" />
+
+            <EditText
+                android:id="@+id/Edit_text_tipo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/text_custom"
+                android:hint="Gênero (Macho ou Fêmea)"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColor="@color/Black" />
+
+            <EditText
+                android:id="@+id/Edit_text_city"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/text_custom"
+                android:hint="Cidade/UF"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColor="@color/Black" />
+
+            <EditText
+                android:id="@+id/Edit_text_telefone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/text_custom"
+                android:hint="WhatsApp (DDD + Numero)"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColor="@color/Black" />
+
+            <EditText
+                android:id="@+id/Edit_text_email2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/text_custom"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:textColor="@color/Black" />
+
+            <EditText
+                android:id="@+id/edit_text_description"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/text_custom"
+                android:gravity="top"
+                android:hint="Descrição do animal. (Ex: idade, temperamento, etc...)"
+                android:inputType="text|textMultiLine"
+                android:padding="5dp" />
+
+            <Button
+                android:id="@+id/btnAvanca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_custom"
+                android:text="Avançar"
+                android:textColor="@color/Azure"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <FrameLayout
+            android:id="@+id/frame4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/bca"
+            android:visibility="gone">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@drawable/layout_shadow_white"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme">
+
+                <ImageView
+                    android:id="@+id/arrow_close_cadastrar"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@mipmap/ic_arrow_back" />
+
+                <TextView
+                    android:id="@+id/toolbar_title8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Cadastrar Imagem"
+                    android:textColor="@color/White"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold" />
+
+            </android.support.v7.widget.Toolbar>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/AliceBlue"
+                android:clickable="true"
+                app:cardBackgroundColor="@color/Black">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_custom"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <Button
+                        android:id="@+id/button_choose_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/button_custom"
+                        android:text="Escolha uma Foto"
+                        android:textColor="@color/Azure"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="20dp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/image_view_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        />
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:background="@color/Black"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp" />
+
+                    <Button
+                        android:id="@+id/btnCadastraFirebase"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/button_custom"
+                        android:text="Cadastrar"
+                        android:textColor="@color/Azure"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="20dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </FrameLayout>
+
+    </ScrollView>
+
+</FrameLayout>

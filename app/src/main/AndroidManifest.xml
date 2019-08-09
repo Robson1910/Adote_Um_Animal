@@ -3,6 +3,7 @@
     package="com.example.robsonrcs.adote_um_animal">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -11,13 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.FeedbackActivity"></activity>
-        <activity android:name=".Activity.ExcluirActivity" />
-        <activity android:name=".Activity.PesquisaActivity" />
-        <activity android:name=".Activity.HomeActivity" />
-        <activity android:name=".Activity.AccountRecoveryActivity" />
-        <activity android:name=".Activity.SignUpActivity" />
-        <activity android:name=".Activity.LoginActivity">
+        <activity android:name=".Activity.CadastroActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".Activity.FeedbackActivity" android:screenOrientation="portrait" />
+        <activity android:name=".Activity.ExcluirActivity" android:screenOrientation="portrait" />
+        <activity android:name=".Activity.PesquisaActivity" android:screenOrientation="portrait" />
+        <activity android:name=".Activity.HomeActivity" android:screenOrientation="portrait" />
+        <activity android:name=".Activity.AccountRecoveryActivity" android:screenOrientation="portrait" />
+        <activity android:name=".Activity.SignUpActivity" android:screenOrientation="portrait" />
+        <activity android:name=".Activity.LoginActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
